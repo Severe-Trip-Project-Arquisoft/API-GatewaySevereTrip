@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: Messages
+          uri: http://3.93.76.44:8080/
+          predicates:
+            - Path=/messages/**
+        - id: Posts
+          uri: http://3.212.247.122:8080/
+          predicates:
+            - Path=/posts/**,/comments/**
+        - id: Client
+          uri: http://3.222.8.195:8080/
+          predicates:
+            - Path=/clients/**
