@@ -6,26 +6,26 @@ spring:
     gateway:
       routes:
         - id: Messages
-          uri: http://3.93.76.44:8080/
+          uri: http://${MESSAGES_ENDPOINT}:8080/
           predicates:
             - Path=/messages/**
         - id: Posts
-          uri: http://3.212.247.122:8080/
+          uri: http://${POSTS_ENDPOINT}:8080/
           predicates:
             - Path=/posts/**,/comments/**
         - id: Client
-          uri: http://35.173.218.135:8080/
+          uri: http://${CLIENT_ENDPOINT}:8080/
           predicates:
             - Path=/clients/**
         - id: Provider
-          uri: http://3.83.41.64:8080/
+          uri: http://${PROVIDER_ENDPOINT}:8080/
           predicates:
             - Path=/providers/**
         - id: Favorites
-          uri: http://54.196.220.119:8080/
+          uri: http://${FAVORITES_ENDPOINT}:8080/
           predicates:
             - Path=/favorites/**
         - id: Reservation
-          uri: http://52.5.42.71:8080/
+          uri: http://${RESERVATION_ENDPOINT}:8080/
           predicates:
-            - Path=/reservation/**
+            - Path=/reservation/**,/payment/**
