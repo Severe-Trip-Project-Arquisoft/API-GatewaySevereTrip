@@ -1,6 +1,5 @@
 server:
   port: 8080
-
 spring:
   cloud:
     gateway:
@@ -13,18 +12,10 @@ spring:
           uri: http://${POSTS_ENDPOINT}:8080/
           predicates:
             - Path=/posts/**,/comments/**
-        - id: Client
-          uri: http://${CLIENT_ENDPOINT}:8080/
+        - id: User
+          uri: http://${USER_ENDPOINT}:8080/
           predicates:
-            - Path=/clients/**
-        - id: Provider
-          uri: http://${PROVIDER_ENDPOINT}:8080/
-          predicates:
-            - Path=/providers/**
-        - id: Favorites
-          uri: http://${FAVORITES_ENDPOINT}:8080/
-          predicates:
-            - Path=/favorites/**
+            - Path=/users/**,/favorites/**,/login/**
         - id: Reservation
           uri: http://${RESERVATION_ENDPOINT}:8080/
           predicates:
